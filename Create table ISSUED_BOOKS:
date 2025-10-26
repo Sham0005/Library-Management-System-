@@ -1,0 +1,12 @@
+CREATE TABLE `issued_books` (
+`IID` int(11) NOT NULL AUTO_INCREMENT,
+`UID` int(11) NOT NULL,
+`BID` int(11) NOT NULL,
+`ISSUED_DATE` varchar(20) NOT NULL,
+`PERIOD` int(11) NOT NULL,
+PRIMARY KEY (`IID`),
+KEY `UID` (`UID`),
+KEY `BID` (`BID`),
+CONSTRAINT `issued_books_ibfk_2` FOREIGN KEY (`BID`) REFERENCES `books` (`bid`),
+CONSTRAINT `issued_books_ibfk_1` FOREIGN KEY (`UID`) REFERENCES `users` (`UID`)
+)
